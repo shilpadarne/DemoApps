@@ -1,0 +1,61 @@
+﻿Login:
+
+{
+  "errorMessage": null,
+  "loggedIn": true
+}
+
+invalid credentials:
+
+{
+  "errorMessage": "Your username or password is invalid!",
+  "loggedIn": false
+}
+
+
+Accounts:
+
+/accounts
+[
+  {
+    "acctName": "Savings account",
+    "acctNumber": "xxx xxx 1206",
+    "äccountBalance": "730000"
+  },
+  {
+    "acctName": "Savings account",
+    "acctNumber": "xxx xxx 2001",
+    "äccountBalance": "1000000"
+  },
+  {
+    "acctName": "Savings account",
+    "acctNumber": "xxx xxx 2017",
+    "äccountBalance": "800000"
+  },
+  {
+    "acctName": "Savings account",
+    "acctNumber": "xxx xxx 1110",
+    "äccountBalance": "85000"
+  }
+]
+Privacy:
+
+{
+"showAccountBalance":true,
+"askPaymentPIN": true,
+"allowTransfers": true
+}
+
+
+
+http://localhost:8080/login?name=Shilpa&password=shilpa@123
+
+http://localhost:8080/accounts
+
+http://localhost:8080/paybill?amount=10000
+
+http://localhost:8080/getPolicy
+
+http://localhost:8080/updatePolicy?askPayPin=false&showAccountBalance=false&allowTransfers=false
+
+http://localhost:8080/logout
