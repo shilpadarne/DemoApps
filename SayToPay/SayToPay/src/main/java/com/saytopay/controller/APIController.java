@@ -51,6 +51,27 @@ public class APIController {
 	}
 	
 	
+	@RequestMapping(value = "/loginToken", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Login> login(@RequestParam(value = "token", required = true) String token) {
+		
+		User user = mUserService.findByToken(token);
+		Login login = new Login();
+
+		if (user != null) {
+			login.setLoggedIn(true);
+			mLoggedInUser = user;
+		} else {
+			login.setLoggedIn(false);
+			login.setErrorMessage(Constants.INVALID_TOKEN);
+		}
+		
+		if(mLoggedInUser != null)
+			System.out.println("Login:Logged in user:"+mLoggedInUser.getUsername());
+		
+		return new ResponseEntity<Login>(login, HttpStatus.OK);
+	}
+	
+	
 	@RequestMapping(value = "/accounts", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Account>> accounts() {
 		
@@ -70,14 +91,14 @@ public class APIController {
 			return new ResponseEntity(new CustomErrorType(Constants.LOGGED_OUT_USER_ERROR), HttpStatus.NOT_FOUND);
 		
 		System.out.println("PAYBILL: Logged in user:"+mLoggedInUser.getUsername());
-		System.out.println("Before payment : Account balance:"+mLoggedInUser.getAccounts().get(0).getÄccountBalance());
+		System.out.println("Before payment : Account balance:"+mLoggedInUser.getAccounts().get(0).getAccountBalance());
 		
 		Account acct = mLoggedInUser.getAccounts().get(0);
-		acct.setÄccountBalance(""+ (Integer.parseInt(acct.getÄccountBalance())- Integer.parseInt(amount)));
+		acct.setAccountBalance(""+ (Integer.parseInt(acct.getAccountBalance())- Integer.parseInt(amount)));
 		mLoggedInUser.getAccounts().remove(0);
 		mLoggedInUser.getAccounts().add(0, acct);
 		
-		System.out.println("After payment: Account balance:"+mLoggedInUser.getAccounts().get(0).getÄccountBalance());
+		System.out.println("After payment: Account balance:"+mLoggedInUser.getAccounts().get(0).getAccountBalance());
 		
 		mUserService.updateUser(mLoggedInUser);
 		

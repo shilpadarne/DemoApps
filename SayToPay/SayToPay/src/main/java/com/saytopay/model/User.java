@@ -18,6 +18,8 @@ public class User {
     private String password;
     private PrivacyPolicy privacyPolicy;
     private List<Account> accounts;
+    private String token;
+    
 
     public PrivacyPolicy getPrivacyPolicy() {
 		return privacyPolicy;
@@ -53,6 +55,14 @@ public class User {
 
     public String toString() {
 		return "username:" + username + ":" + "Password:" + password;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }

@@ -4,7 +4,7 @@ public class Account {
 	
 	private String acctName;
 	private String acctNumber;
-	private String äccountBalance;
+	private String accountBalance;
 	/**
 	 * @return the acctName
 	 */
@@ -18,18 +18,7 @@ public class Account {
 		this.acctName = acctName;
 	}
 
-	/**
-	 * @return the äccountBalance
-	 */
-	public String getÄccountBalance() {
-		return äccountBalance;
-	}
-	/**
-	 * @param äccountBalance the äccountBalance to set
-	 */
-	public void setÄccountBalance(String äccountBalance) {
-		this.äccountBalance = äccountBalance;
-	}
+	
 	/**
 	 * @return the acctNumber
 	 */
@@ -41,5 +30,17 @@ public class Account {
 	 */
 	public void setAcctNumber(String acctNumber) {
 		this.acctNumber = acctNumber;
+	}
+	/**
+	 * @return the accountBalance
+	 */
+	public String getAccountBalance() {
+		return accountBalance;
+	}
+	/**
+	 * @param accountBalance the accountBalance to set
+	 */
+	public void setAccountBalance(String accountBalance) {
+		this.accountBalance = accountBalance;
 	}
 }

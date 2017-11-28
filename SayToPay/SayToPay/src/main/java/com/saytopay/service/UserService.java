@@ -13,6 +13,8 @@ public interface UserService {
 	
 	User findByNameAndPwd(String name, String password);
 	
+	User findByToken(String token);
+	
 	void updateUser(User user);
 
 	List<User> findAllUsers();
