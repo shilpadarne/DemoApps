@@ -1,0 +1,22 @@
+<ion-header>
+ 
+ <ion-navbar>
+   
+ <ion-title>
+     
+ {{'lang-select.page_title' | translate}}
+  
+  </ion-title>
+  
+</ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+<p> <button ion-button color="secondary" (click)="langSelected('en_US')">{{ 'lang-select.english' | translate }}</button></p>
+<p> <button ion-button color="secondary" (click)="langSelected('mr_IN')">{{ 'lang-select.marathi' | translate }}</button></p>
+
+</ion-content>
